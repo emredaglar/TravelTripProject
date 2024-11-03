@@ -1,0 +1,35 @@
+﻿@using TravelTripProject.Models.Classes
+@model List<Blog>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+<br />
+<h4>Blog Listesi</h4>
+<br />
+<table class="table table-bordered">
+    <tr>
+        <th>ID</th>
+        <th>Başlık</th>
+
+        <th>Sil</th>
+        <th>Güncelle</th>
+        <th>Detay</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Baslik</td>
+
+            <td><a class="btn btn-danger" href="/Admin/BlogSil/@item.ID">Sil</a></td>
+            <td><a class="btn btn-success" href="/Admin/BlogGetir/@item.ID">Güncelle</a></td>
+            <td><a class="btn btn-warning" href="#">Detay</a></td>
+
+        </tr>
+
+    }
+
+</table>
+<a class="btn btn-warning" href="/Admin/BlogEkle">Yeni Blog Yazısı Ekle</a>
